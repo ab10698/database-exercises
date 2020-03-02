@@ -13,6 +13,8 @@ ORDER BY d.dept_name;
 
 
 
+
+
 SELECT d.dept_name AS 'Department Name', CONCAT(e.first_name, ' ', e.last_name) AS 'Manager Name'
 FROM departments AS d
          LEFT JOIN dept_manager AS m ON d.dept_no = m.dept_no

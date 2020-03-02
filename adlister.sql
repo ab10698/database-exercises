@@ -47,6 +47,8 @@ SELECT title FROM categories AS cat
 SELECT title, description FROM users
                                    JOIN ads ON users.id = ads.user_id
 WHERE users.id = 5;
+
+
 # Answers
 CREATE TABLE IF NOT EXISTS answers
 (
@@ -57,6 +59,8 @@ CREATE TABLE IF NOT EXISTS answers
     PRIMARY KEY (id),
     FOREIGN KEY (question_id) REFERENCES questions (id)
 );
+
+
 # Question
 CREATE TABLE IF NOT EXISTS questions
 (
@@ -67,6 +71,8 @@ CREATE TABLE IF NOT EXISTS questions
     quiz_id INT,
     FOREIGN KEY (quiz_id) REFERENCES quizzes (id)
 );
+
+
 # Quizzes
 CREATE TABLE IF NOT EXISTS quizzes
 (
@@ -75,6 +81,8 @@ CREATE TABLE IF NOT EXISTS quizzes
     subject VARCHAR(20),
     PRIMARY KEY (id)
 );
+
+
 # Users
 CREATE TABLE IF NOT EXISTS users
 (
@@ -84,6 +92,8 @@ CREATE TABLE IF NOT EXISTS users
     password varchar(255) NOT NULL,
     PRIMARY KEY (id)
 );
+
+
 # Results
 CREATE TABLE IF NOT EXISTS Results
 (
@@ -95,6 +105,8 @@ CREATE TABLE IF NOT EXISTS Results
     FOREIGN KEY (users_id) REFERENCES users (id),
     FOREIGN KEY (quizzes_id) REFERENCES quizzes (id)
 );
+
+
 SELECT COUNT(*) AS 'Number of students that have taken' FROM (
                                                                  SELECT DISTINCT users_id
                                                                  FROM Results
